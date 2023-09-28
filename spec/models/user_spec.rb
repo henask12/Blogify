@@ -33,7 +33,7 @@ RSpec.describe User, type: :model do
   describe 'Callbacks' do
     it 'should update posts_counter after create' do
       user = User.create(name: 'John Doe', photo: 'https://example.com', bio: 'Bio here')
-      post = Post.create(author: user, title: 'My Post', text: 'Post content')
+      Post.create(author: user, title: 'My Post', text: 'Post content')
       expect(@user.posts_counter).to eq(nil)
     end
 
