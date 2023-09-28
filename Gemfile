@@ -5,10 +5,10 @@ ruby '3.0.2'
 
 gem 'rubocop', '~> 1.56', require: false
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
