@@ -14,7 +14,6 @@ RSpec.describe Like, type: :model do
   end
 
   describe 'Instance created with valid attributes should update post likes_counter' do
-
     it 'should update post likes_counter after destroy' do
       @like.destroy
       expect(@post.likes_counter).to eq(0)

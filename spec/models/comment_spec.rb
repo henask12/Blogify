@@ -23,7 +23,6 @@ RSpec.describe Comment, type: :model do
     end
   end
   describe 'Instance created with valid attributes should update post comments_counter' do
-
     it 'should update post comments_counter after destroy' do
       @comment.destroy
       expect(@post.comments_counter).to eq(0)
