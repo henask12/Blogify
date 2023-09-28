@@ -111,7 +111,6 @@ rspec test
 👤 **Henok Mekonnen**
 
 - GitHub: [@githubhandle](https://github.com/henask12)
-- Twitter: [@twitterhandle](https://twitter.com/henok_mekonnen3)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/henokmekonnen1)
 
 <p align='right'>(<a href="#readme-top">back to top</a>)</p>
@@ -156,6 +155,6 @@ I would like to express my heartfelt gratitude to [Microverse](https://github.co
 
 ## 📝 License <a id="license"></a>
 
-This project is [MIT](./MIT) licensed.
+This project is [MIT](./LICENSE) licensed.
 
 <p align='right'>(<a href="#readme-top">back to top</a>)</p>
