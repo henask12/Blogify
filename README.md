@@ -99,7 +99,7 @@ rails server
 To run the tests try the following command:
 
 ```
-bundle exec rspec
+rspec spec
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
