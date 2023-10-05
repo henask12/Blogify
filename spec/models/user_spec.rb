@@ -46,8 +46,9 @@ RSpec.describe User, type: :model do
 
   describe 'Methods' do
     it 'should return recent posts' do
-      recent_posts = @user.recent_posts(3)
+      recent_posts = @user.post_recent
       expect(recent_posts).to be_an(ActiveRecord::Relation)
     end
   end
+  
 end
