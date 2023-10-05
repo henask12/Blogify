@@ -46,5 +46,4 @@ RSpec.describe Post, type: :model do
       expect(recent_comments).to be_an(ActiveRecord::Relation)
     end
   end
-  
 end
