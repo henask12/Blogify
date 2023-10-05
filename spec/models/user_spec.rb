@@ -50,5 +50,4 @@ RSpec.describe User, type: :model do
       expect(recent_posts).to be_an(ActiveRecord::Relation)
     end
   end
-  
 end
