@@ -66,7 +66,9 @@ h2 { font-size: var(--font-h2-size); }
 
 h3 { font-size: var(--font-h3-size); }
 
-p, label, a { font-size: var(--font-p-size); }
+p,
+label,
+a { font-size: var(--font-p-size); }
 
 a {
   text-decoration: none;
@@ -77,7 +79,7 @@ a:hover {
   text-decoration: underline;
 }
 
-label {margin-bottom: 0.5rem;}
+label { margin-bottom: 0.5rem; }
 
 li { list-style: none; }
 
