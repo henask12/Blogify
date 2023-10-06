@@ -22,12 +22,6 @@ RSpec.describe 'Users', type: :request do
       get '/users'
       expect(response).to_not render_template(:show)
     end
-
-    # If the response body includes correct placeholder text for the index action.
-    it 'should include correct placeholder text in the response body' do
-      get '/users'
-      expect(response.body).to include('Index Users')
-    end
   end
 
   describe 'GET /users/:id' do

@@ -42,7 +42,7 @@ RSpec.describe Post, type: :model do
 
   describe 'Methods' do
     it 'should return recent comments' do
-      recent_comments = @post.recent_comments(5)
+      recent_comments = @post.recent_comments
       expect(recent_comments).to be_an(ActiveRecord::Relation)
     end
   end
