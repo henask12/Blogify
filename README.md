@@ -10,7 +10,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -29,7 +28,7 @@
 
 # 📖 Blogify <a id="about-project"></a>
 
-**Blogify**  is a powerful and user-friendly blogging platform designed to empower writers, bloggers, and content creators to share their ideas with the world.
+**Blogify** is a powerful and user-friendly blogging platform designed to empower writers, bloggers, and content creators to share their ideas with the world.
 
 ## 🛠 Built With <a id="built-with"></a>
 
@@ -48,12 +47,6 @@
 - **Modular Code Structure**
 - **Linters Setup**
 - **Schema Definition**
-
-<p align='right'>(<a href="#readme-top">back to top</a>)</p>
-
-## 🚀 Live Demo <a id="live-demo"></a>
-
-- Currently No Available Live Demo
 
 <p align='right'>(<a href="#readme-top">back to top</a>)</p>
 
@@ -84,7 +77,6 @@ Navigate to the cloned repository and run the following command to install the n
 cd blogify
 bundle install
 ```
-
 
 ### Usage
 
