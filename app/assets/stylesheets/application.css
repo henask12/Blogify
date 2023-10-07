@@ -66,7 +66,9 @@ h2 { font-size: var(--font-h2-size); }
 
 h3 { font-size: var(--font-h3-size); }
 
-p { font-size: var(--font-p-size); }
+p,
+label,
+a { font-size: var(--font-p-size); }
 
 a {
   text-decoration: none;
@@ -76,6 +78,8 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+label { margin-bottom: 0.5rem; }
 
 li { list-style: none; }
 
@@ -90,6 +94,7 @@ li { list-style: none; }
   background-color: #fff;
   border-radius: 0.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .posts {
@@ -179,4 +184,21 @@ li { list-style: none; }
   color: #000;
   text-align: right;
   margin-right: 1rem;
+}
+
+/* show post view */
+
+.add-like {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.add-like img {
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #88a8c2;
+  cursor: pointer;
 }

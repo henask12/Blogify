@@ -4,6 +4,9 @@
       <%= render partial: "shared/user_card", locals: { user: user } %>
     <% end %>
   <% else %>
-    <p>There's no users, please</p>
+    <p>There is no users, please add</p>
   <% end %>
+</section>
+<section class="add-section flex-column">
+  <%= link_to "Add a new post", new_user_post_path(@users) %>
 </section>
