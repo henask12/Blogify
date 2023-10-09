@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 
 RSpec.feature 'User Show Page Details (What users see)', type: :feature do
