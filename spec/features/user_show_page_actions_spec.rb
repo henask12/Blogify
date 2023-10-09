@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 
 RSpec.feature 'User Show Page Actions (When the user click)', type: :feature do
