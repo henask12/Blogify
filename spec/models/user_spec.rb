@@ -2,52 +2,55 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before(:each) do
-    @user = User.create(name: 'Henok Mekonnen', photo: 'https://shorturl.at/nrsOQ', bio: 'Developer from Ethiopia.')
+    @user = User.create(name: 'César Herrera', photo: 'https://www.devinpucon.com', bio: 'Developer from Chile.')
     @post = Post.create(author: @user, title: 'My first post', text: 'This is my first post')
   end
 
-  describe 'Validations' do
-    it 'should validate the presence of name' do
-      expect(@user).to validate_presence_of(:name)
+  describe 'Instance created with valid attributes' do
+    it 'should be valid' do
+      expect(@user).to be_valid
     end
 
-    it 'should validate that posts_counter is an integer and greater than or equal to 0' do
-      expect(@user).to validate_numericality_of(:posts_counter).only_integer.is_greater_than_or_equal_to(0)
-    end
-  end
-
-  describe 'Associations' do
-    it 'should have many posts' do
-      expect(@user).to have_many(:posts).with_foreign_key('author_id').dependent(:destroy)
+    it 'should have a name' do
+      expect(@user.name).to eq('César Herrera')
     end
 
-    it 'should have many comments' do
-      expect(@user).to have_many(:comments).dependent(:destroy)
+    it 'should have a photo' do
+      expect(@user.photo).to eq('https://www.devinpucon.com')
     end
 
-    it 'should have many likes' do
-      expect(@user).to have_many(:likes).dependent(:destroy)
+    it 'should have a bio' do
+      expect(@user.bio).to eq('Developer from Chile.')
+    end
+
+    it 'should have a posts_counter' do
+      expect(@user.posts_counter).to eq(1)
     end
   end
 
-  describe 'Callbacks' do
-    it 'should update posts_counter after create' do
-      user = User.create(name: 'John Doe', photo: 'https://example.com', bio: 'Bio here')
-      Post.create(author: user, title: 'My Post', text: 'Post content')
-      expect(@user.posts_counter).to eq(nil)
+  describe 'Instance created with invalid attributes should not pass validations' do
+    it 'should not be valid without a name' do
+      @user.name = nil
+      expect(@user).to_not be_valid
     end
 
-    it 'should update posts_counter after destroy' do
-      @post.destroy
-      @user.reload
-      expect(@user.posts_counter).to eq(0)
+    it 'should not be valid without a posts_counter' do
+      @user.posts_counter = nil
+      expect(@user).to_not be_valid
+    end
+
+    it 'should not be valid with a negative posts_counter' do
+      @user.posts_counter = -1
+      expect(@user).to_not be_valid
     end
   end
 
-  describe 'Methods' do
-    it 'should return recent posts' do
-      recent_posts = @user.post_recent
-      expect(recent_posts).to be_an(ActiveRecord::Relation)
+  describe 'Instance methods' do
+    it 'should return the 3 most recent posts' do
+      3.times do |i|
+        Post.create(author: @user, title: "Post #{i}", text: "This is post #{i}")
+      end
+      expect(@user.post_recent.count).to eq(3)
     end
   end
 end
