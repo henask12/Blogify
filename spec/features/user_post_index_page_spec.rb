@@ -14,12 +14,16 @@ RSpec.feature 'User post index page', type: :feature do
     expect(page).to have_css("img[src*='https://i.pravatar.cc/150?img=3']")
   end
 
+  # I can see the user's username.
+  # I can see the number of posts the user has written.
   scenario 'shows the user username and the real number of posts the user has written' do
     visit user_posts_path(@user.id)
     expect(page).to have_content('César Herrera')
     expect(page).to have_content('Number of post: 1')
   end
 
+  # I can see a post's title.
+  # I can see some of the post's body.
   scenario 'shows a post title and some of the post body' do
     visit user_posts_path(@user.id)
     expect(page).to have_content('My first post')

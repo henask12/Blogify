@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'User post index page', type: :feature do
   before do
-    @user = User.create(name: 'Henok Mekonnen', photo: 'https://i.pravatar.cc/150?img=3', bio: 'I am a developer')
+    @user = User.create(name: 'César Herrera', photo: 'https://i.pravatar.cc/150?img=3', bio: 'I am a developer')
     @post1 = Post.create(author_id: @user.id, title: 'My first post', text: 'This is my first post')
     @post2 = Post.create(author_id: @user.id, title: 'My second post', text: 'This is my second post')
     @post3 = Post.create(author_id: @user.id, title: 'My third post', text: 'This is my third post')
@@ -11,6 +11,8 @@ RSpec.feature 'User post index page', type: :feature do
     @post6 = Post.create(author_id: @user.id, title: 'My sixth post', text: 'This is my sixth post')
   end
 
+  # I can see a section for pagination if there are more posts than fit on the view.
+  # It will show only 4 posts and the pagination section
   scenario 'shows a section for pagination if there are more posts than fit on the view' do
     visit user_posts_path(@user.id)
     expect(page).to have_content('My first post')
@@ -23,6 +25,7 @@ RSpec.feature 'User post index page', type: :feature do
     expect(page).to have_content('Last')
   end
 
+  # When I click on a post, it redirects me to that post's show page.
   scenario 'action: redirects to the post show page when clicking on a user post and see it content' do
     visit user_posts_path(@user.id)
     first(:link, 'My first post').click
