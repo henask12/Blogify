@@ -105,6 +105,12 @@ rspec spec
 - GitHub: [@githubhandle](https://github.com/henask12)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/henokmekonnen1)
 
+👤 **Franck Sefu**
+
+- GitHub: [francksefu](https://github.com/francksefu)
+- Twitter: [francksefu](https://twitter.com/franck_sefu)
+- LinkedIn: [francksefu](https://www.linkedin.com/in/franck-sefu/)
+
 <p align='right'>(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->

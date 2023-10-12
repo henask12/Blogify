@@ -12,6 +12,17 @@ RSpec.describe 'Users', type: :request do
       get "/users/#{@user.id}/posts"
       expect(response).to have_http_status(200)
     end
+
+    # If a correct template was rendered for the index action.
+    it 'should render the index template' do
+      get "/users/#{@user.id}/posts"
+      expect(response).to render_template(:index)
+    end
+
+    it 'does not render a different template' do
+      get "/users/#{@user.id}/posts"
+      expect(response).to_not render_template(:show)
+    end
   end
 
   describe 'GET /users/:id/posts/:id' do
