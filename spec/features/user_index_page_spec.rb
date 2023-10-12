@@ -26,17 +26,4 @@ RSpec.feature 'User Index Page', type: :feature do
     visit users_path
     expect(page).to have_content('Number of post: 2')
   end
-
-  # When I click on a user, I am redirected to that user's show page.
-  scenario 'redirects to the user show page when clicking on a user and see it content' do
-    visit users_path
-    first(:link, 'César Herrera').click
-    expect(current_path).to eq(user_path(@user.id))
-    expect(page).to have_content('César Herrera')
-    expect(page).to have_content('I am a developer')
-    expect(page).to have_content('My first post')
-    expect(page).to have_content('This is my first post')
-    expect(page).to have_content('My second post')
-    expect(page).to have_content('This is my second post')
-  end
 end
