@@ -73,11 +73,7 @@ label,
 a,
 input::placeholder { font-size: var(--font-p-size); }
 
-a { text-decoration: none; }
-
 li { list-style: none; }
-
-label { margin-bottom: 0.5rem; }
 
 input[type='submit'] {
   cursor: pointer;
@@ -90,7 +86,6 @@ input[type='submit'] {
 }
 
 /* show users view */
-a { font-size: var(--font-p-size); }
 
 a {
   text-decoration: none;
@@ -103,8 +98,6 @@ a:hover {
 
 label { margin-bottom: 0.5rem; }
 
-li { list-style: none; }
-
 /* Show users view */
 
 .bio {
@@ -116,18 +109,11 @@ li { list-style: none; }
 }
 
 .posts {
-  padding: 2rem 2rem;
-  background-color: #fff;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-
-.posts {
   padding: 2rem;
   background-color: #fff;
   border-radius: 0.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .all-posts {
@@ -147,12 +133,6 @@ li { list-style: none; }
 
 /* show post view */
 
-.add-like {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-}
-
 .add-like img {
   width: 3.5rem;
   height: 3.5rem;
@@ -162,6 +142,9 @@ li { list-style: none; }
   background-color: var(--primary-color);
   color: #fff;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 
 /* Post card & Post comment card Partials */
@@ -206,12 +189,6 @@ li { list-style: none; }
   height: 8rem;
   border-radius: 50%;
   margin-right: 2rem;
-}
-
-.user-details {
-  flex-grow: 1;
-  text-align: left;
-  object-fit: cover;
 }
 
 .user-details h3 {
@@ -280,13 +257,4 @@ li { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: end;
-}
-
-.add-like img {
-  width: 3.5rem;
-  height: 3.5rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  background-color: #88a8c2;
-  cursor: pointer;
 }
