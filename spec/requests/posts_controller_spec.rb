@@ -23,7 +23,6 @@ RSpec.describe 'Users', type: :request do
       get "/users/#{@user.id}/posts"
       expect(response).to_not render_template(:show)
     end
-
   end
 
   describe 'GET /users/:id/posts/:id' do
@@ -43,6 +42,5 @@ RSpec.describe 'Users', type: :request do
       get "/users/#{@user.id}/posts/#{@posts.id}"
       expect(response).to_not render_template(:index)
     end
-
   end
 end
