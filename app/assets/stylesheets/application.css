@@ -13,16 +13,17 @@
  *= require_tree .
  *= require_self
  */
-:root {
+
+ :root {
   --font: 'Montserrat', sans-serif;
   --font-title: 3rem;
   --font-p-size: 1.4rem;
   --font-h2-size: 2.5rem;
   --font-h3-size: 2rem;
   --font-count-size: 1.2rem;
-  --background: #f0f0f0;
-  --primary-color: #3498db; /* Primary color for flat UI */
-  --secondary-color: #e74c3c; /* Secondary color for flat UI */
+  --background: #e8e8e8;
+  --very-light-grey: #e8e8e8;
+  --blue-color: #4386bf;
 }
 
 html {
@@ -38,6 +39,8 @@ html {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
+
+  /* outline: 1px solid red !important; */
 }
 
 body {
@@ -68,22 +71,26 @@ h3 { font-size: var(--font-h3-size); }
 
 p,
 label,
-a { font-size: var(--font-p-size); }
+a,
+input::placeholder { font-size: var(--font-p-size); }
 
-a {
-  text-decoration: none;
-  color: var(--primary-color); /* Primary color for links */
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-label { margin-bottom: 0.5rem; }
+a { text-decoration: none; }
 
 li { list-style: none; }
 
-/* Show users view */
+label { margin-bottom: 0.5rem; }
+
+input[type='submit'] {
+  cursor: pointer;
+  font-size: var(--font-p-size);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--blue-color);
+  color: white;
+}
+
+/* show users view */
 
 .bio {
   align-items: flex-start;
@@ -91,17 +98,10 @@ li { list-style: none; }
   padding: 2rem;
   margin-bottom: 2rem;
   gap: 1rem;
-  background-color: #fff;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
 }
 
 .posts {
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem 2rem;
 }
 
 .all-posts {
@@ -115,8 +115,24 @@ li { list-style: none; }
   border: none;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
-  background-color: var(--primary-color);
-  color: #fff;
+  background-color: #88a8c2;
+  cursor: pointer;
+}
+
+/* show post view */
+
+.add-like {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.add-like img {
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #88a8c2;
   cursor: pointer;
 }
 
@@ -126,9 +142,6 @@ li { list-style: none; }
 .post-comments {
   margin-bottom: 2rem;
   gap: 0.5rem;
-  background-color: #fff;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .counter {
@@ -151,10 +164,6 @@ li { list-style: none; }
   display: flex;
   align-items: center;
   margin-bottom: 2rem;
-  background-color: #fff;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
 }
 
 .user-image img {
@@ -162,43 +171,52 @@ li { list-style: none; }
   height: 8rem;
   border-radius: 50%;
   margin-right: 2rem;
-  object-fit: cover;
-}
-
-.user-details h3 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-  color: var(--primary-color);
 }
 
 .user-details {
-  font-size: 1.2rem;
-  color: #777;
-  text-align: left;
   flex-grow: 1;
+  text-align: left;
   gap: 1rem;
 }
 
 .post-count {
-  font-size: 1rem;
-  color: #000;
+  font-size: var(--font-count-size);
   text-align: right;
-  margin-right: 1rem;
 }
 
-/* show post view */
+/* Devise registration form */
 
-.add-like {
-  display: flex;
-  align-items: center;
-  justify-content: end;
+.form-inputs {
+  padding: 2rem 0;
+  gap: 1rem;
 }
 
-.add-like img {
-  width: 3.5rem;
+.form-inputs input,
+.form-inputs textarea {
+  width: 100%;
   height: 3.5rem;
-  padding: 0.5rem;
+  border: 1px;
+  border-color: var(--very-light-grey);
   border-radius: 0.5rem;
-  background-color: #88a8c2;
-  cursor: pointer;
+  padding: 0 1rem;
+  font-size: var(--font-p-size);
+  transition: all 0.3s ease-in-out;
+}
+
+.form-inputs textarea {
+  height: 10rem;
+}
+
+.form-actions {
+  margin-bottom: 2rem;
+}
+
+.form-check input[type='checkbox'] {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.form-actions .login {
+  width: 100%;
 }
