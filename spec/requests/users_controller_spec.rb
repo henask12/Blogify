@@ -22,7 +22,6 @@ RSpec.describe 'Users', type: :request do
       get '/users'
       expect(response).to_not render_template(:show)
     end
-
   end
 
   describe 'GET /users/:id' do
