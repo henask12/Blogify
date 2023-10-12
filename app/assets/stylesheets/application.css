@@ -14,7 +14,7 @@
  *= require_self
  */
 
- :root {
+:root {
   --font: 'Montserrat', sans-serif;
   --font-title: 3rem;
   --font-p-size: 1.4rem;
