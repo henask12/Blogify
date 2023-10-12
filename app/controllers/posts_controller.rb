@@ -29,6 +29,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    Comment.where(post_id: @post).delete_all if Comment.where(post_id: @post.id).any?
+    user = User.find(params[:user_id])
+    return unless @post.destroy
+
+    user.update_post_counter
+    redirect_to user_path(user)
+  end
+
+
   private
 
   def post_params
