@@ -1,27 +1,18 @@
-<% if flash[:alert].present? %>
-	<section class="flash-alert">
-		<div class="alert">
-			<p><%= flash[:alert] %></p>
-		</div>
-	</section>
+<section class="user-container d-flex-col">
+<h3 class="add-post">Add new comment</h3>
+<%= form_with(model:[@user, @post, @comment]) do |form| %>
+  <div class="form-div">
+    <%= form.label :author, "#{@current.name}" %>
+  </div>
+  <div class="form-div">
+    <%= form.label :text, "Comment:" %>
+    <%= form.text_area :text %>
+  </div>
+  <div>
+    <%= form.submit "Submit" %>
+  </div class="form-div">
 <% end %>
-<section class="add-message">
-    <h2>Add new Comment</h2>
-    <h4>(with the current user: <%= @user.name %>)</h4>
-
-    <% if flash[:alert].present? %>
-        <div class="alert">
-            <%= flash[:alert] %>
-        </div>
-    <% end %>
-
-    <%= form_with model: [@user, @post, @comment], url:
-    user_post_comments_path(@user, @post) do |form| %>
-        <div class="form-message_text flex-column">
-            <%= form.label :text %>
-            <%= form.text_area :text, size: "30x5" %>
-        </div>
-        <%= form.submit %>
-    <% end %>
+<div class="d-flex btn-nav">
+    <%= navigation_buttons %>
+  </div>
 </section>
-<p><%= link_to "Back", :back %> | <%= render partial: "shared/link_main" %></p>
