@@ -47,6 +47,8 @@
 - **Modular Code Structure**
 - **Linters Setup**
 - **Schema Definition**
+- **Authorization Rules**
+- **API Endpoints**
 
 <p align='right'>(<a href="#readme-top">back to top</a>)</p>
 
@@ -117,7 +119,7 @@ rspec spec
 
 ## 🔭 Future Features <a id="future-features"></a>
 
-- [ ] **[Blog app implementation]**
+- [ ] **[API Documentation]**
 - [ ] **[Expand Class Types]**
 - [ ] **[Logging and Auditing]**
 
