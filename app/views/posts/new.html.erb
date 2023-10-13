@@ -1,32 +1,19 @@
-<% if flash[:alert].present? %>
-	<section class="flash-alert">
-		<div class="alert">
-			<p><%= flash[:alert] %></p>
-		</div>
-	</section>
+<section class="user-container d-flex-col">
+<h3 class="add-post">Add new post</h3>
+<%= form_with(model:[@user_current, @post_new]) do |form| %>
+  <div class="form-div">
+    <%= form.label :title, "Title:" %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="form-div">
+    <%= form.label :text, "Post:" %>
+    <%= form.text_area :text %>
+  </div>
+  <div class="form-div">
+    <%= form.submit "Submit" %>
+  </div>
 <% end %>
-<section class="form-post">
-    <h1>Create a new Post</h1>
-    <h4>(for the current user: <%= @user.name %>)</h4>
-
-    <% if flash[:alert].present? %>
-        <div class="alert">
-            <%= flash[:alert] %>
-        </div>
-    <% end %>
-
-    <%= form_with model: [@user, @new_post] do |form| %>
-        <div class="form-post_title flex-column">
-            <%= form.label :title %>
-            <%= form.text_field :title %>
-        </div>
-        <div class="form-post_text flex-column">
-            <%= form.label :text %>
-            <%= form.text_area :text, size: "30x5" %>
-        </div>
-        <%= form.submit %>
-    <% end %>
+<div class="d-flex btn-nav">
+    <%= navigation_buttons %>
+  </div>
 </section>
-<p>
-    <%= link_to "Back" , :back %> | <%= render partial: "shared/link_main" %>
-</p>

@@ -1,27 +1,21 @@
-<% if flash[:notice].present? %>
-	<section class="flash-alert">
-		<div class="alert">
-			<p><%= flash[:notice] %></p>
-		</div>
-	</section>
-<% end %>
-<% if @user %>
-	<section class="user">
-		<div>			
-			<%= render partial: "shared/user_card", locals: { user: @user } %>
-		</div>
-	</section>
-	<section class="bio flex-column">
-		<h3>Bio</h3>
-		<p><%= @user.bio %></p>
-	</section>
-	<section class="posts flex-column">
-		<%= render partial: "shared/post_card", locals: { user: @user.post_recent } %>
-		<div class="all-posts flex-column">
-			<%= link_to "See all post", user_posts_path(@user), class: "see-all-post" %>
-		</div>
-	</section>
-<% else %>
-	<p>404 - User not found</p>
-<% end %>
-<p><%= link_to "Back", :back %> | <%= render partial: "shared/link_main" %></p>
+<section class="user-container d-flex-col">
+  <%= render partial: 'user_card', object: @user, as: :user %>
+
+  <div class="border bio">
+    <h3>Bio</h3>
+    <p><%= @user.bio %></p>
+  </div>
+  
+  <div class="btn-cont d-flex">
+    <button><%= link_to 'Create post', new_user_post_path(@user) %></button>
+  </div>
+
+  <div class="d-flex-col post-container">
+    <%= render partial: 'posts/posts_card', collection: @user.three_recent_posts, as: :post %>
+  </div>
+  <div class="d-flex btn-nav">
+    <%= show_all_post(@user) %>
+    <%= navigation_buttons %>
+  </div>
+</section>
+<span class="tests">Info from specific user</span>

@@ -1,43 +1,21 @@
-<% if flash[:notice].present? %>
-	<section class="flash-alert">
-		<div class="alert">
-			<p><%= flash[:notice] %></p>
-		</div>
-	</section>
-<% end %>
-<section class="post-show">
-  <div class="post-header">
-    <h2>
-      Post # by <%= @user.name %>
-    </h2>
-    <p class="counter"><i>Comments: <%= @posts.comments_counter %>, Likes: <%= @posts.likes_counter %></i></p>
-    <br><br>
+<div class="user-container d-flex-col">
+  <div class ="border post-detail">
+    <h3><%= @post.title %> by <%= @post.author.name %></h3>
+    <div class="counters d-flex">
+      <span>Comments: <%= @post.comments_counter %></span>
+      <span>Likes: <%= @post.likes_counter %></span>
+    </div>
+    <span><%= @post.text %></span>
   </div>
-  <div class="add-like">
-    <%= form_tag user_post_likes_path(@posts.author, @posts), method: :post do %>
-      <%= hidden_field_tag :id, @posts.id %>
-      <%= image_tag 'heart.png', alt: 'Like button', class: 'cursor-pointer', onclick: 'this.closest("form").submit();', width: 25 %>
-    <% end %>
+
+  <div class="btn-comen d-flex">
+    <button><%= link_to 'Create comment', new_user_post_comment_path(@post.author,@post) %></button>
+    <%= add_like %>
   </div>
-  <div class="post-content">
-    <p>
-      <%= @posts.text %>
-    </p>
+
+  <%= show_all_comments(@post) %>
+  <div class="d-flex btn-nav">
+    <%= navigation_buttons %>
   </div>
-  <br><br>
-</section>
-<hr />
-<h3>Comments</h3>
-<hr />
-<br>
-<%= link_to "Add new Comment", new_user_post_comment_path(post_id: @posts.id) %>
-<br><br>
-<hr />
-<!--  -->
-<% if @posts.comments_counter > 0 %>
-  <%= render partial: "shared/comments_section", locals: { post: @posts } %>
-<% else %>
-  <p>No comments yet</p>
-<% end %>
-<hr />
-<p><%= link_to "Back", :back %> | <%= render partial: "shared/link_main" %></p>
+</div>
+<span class="tests">Post and its comments</span>

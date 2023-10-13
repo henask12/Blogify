@@ -1,26 +1,13 @@
+<section class="user-container d-flex-col">
+  <%= render partial: 'users/user_card', object: @user, as: :user %>
 
-<% if @posts.empty? %>
-  <h3><center>There are no posts yet.</center></h3>
-<% else %>
-  <section class="post-index">
-    <%= render partial: "shared/user_card", locals: { user: @user } %>
-    <div class="all-post">
-      <%= render partial: "shared/post_comment_card", locals: { posts: @posts } %>
-      <!-- Pagination with kaminari -->
-      <h3><center><%= paginate @posts %></center></h3>    
-    </div>
-  </section>
-<% end %>
-<br><br>
-<p><%= link_to "Back", :back %> | <%= render partial: "shared/link_main" %></p>
-<section class="post-index">
-  <%= render partial: "shared/user_card", locals: { user: @user } %>
-  <div class="all-post">
-    <%= render partial: "shared/post_comment_card", locals: { posts: @posts } %>
-    <!-- Pagination with kaminari -->
-    <h3><center><%= paginate @posts %></center></h3>    
-  </div>
-  <br><br>
-  <p><%= link_to "Back", :back %> | <%= render partial: "shared/link_main" %></p>
+  <%= render partial: 'posts_comments', collection: @posts, as: :post %>
   
+  <div class="d-flex btn-nav">
+    <span class="pagination">
+      <%= paginate @posts, window: 2 %>
+    </span>
+    <%= navigation_buttons %>
+  </div>
 </section>
+<span class="tests">List of posts, general views</span>
