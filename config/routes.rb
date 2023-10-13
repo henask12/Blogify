@@ -5,10 +5,19 @@ Rails.application.routes.draw do
   root 'users#index'
 
   resources :users , only: [:index, :show] do
-    resources :posts, only: [:index, :new, :create, :show] do
+    resources :posts, only: [:index, :new, :create, :show, :destroy] do
       post 'createlike', on: :member
       delete 'deletelike', on: :member
-      resources :comments, only: [:new, :create]
+      resources :comments, only: [:new, :create, :destroy]
+    end
+  end
+
+  # Api endpoints
+  namespace :api do
+    resources :users, only: [:index] do
+      resources :posts, only: [:index] do
+        resources :comments, only: [:index, :create]
+      end
     end
   end
 end
