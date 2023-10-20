@@ -37,6 +37,7 @@
   <ul>
     <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    <li><a href="#">BootStrap 5</a></li>
   </ul>
 
 <!-- Features -->
